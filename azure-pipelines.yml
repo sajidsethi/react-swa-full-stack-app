@@ -10,14 +10,12 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: NodeTool@0
+- task: Bash@3
   inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
-
-- script: |
-npm create vite@latest react-swa-full-stack-app -- --template react
-cd react-swa-full-stack-app
-npm install react-router-dom
-    
-  displayName: 'npm install and build'
+    targetType: 'inline'
+    script: |
+      npm install -g @azure/static-web-apps-cli
+      npm install
+      cd api
+      npm install
+      swa start http://localhost:5173 --run "npm run dev" --api-location ./api
