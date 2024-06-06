@@ -15,7 +15,6 @@ steps:
     targetType: 'inline'
     script: |
       npm install -g @azure/static-web-apps-cli
-      
       npm install
       cd api
       npm install
