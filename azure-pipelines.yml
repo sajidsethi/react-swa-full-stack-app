@@ -20,4 +20,5 @@ steps:
     npm install
     cd api
     npm install 
+    swa start http://localhost:5173 --run "npm run dev" --api-location ./api
   displayName: 'npm install and build'
